@@ -1,5 +1,6 @@
 from agent import agent
 from agent import ask_agent
+
 # from db import init_db
 # from tools import load_data_if_needed
 
@@ -35,7 +36,7 @@ from agent import ask_agent
 # print(response["messages"][-1].content)
 
 
-# To reuse across main.py and 
+# To reuse across main.py and
 question = input("Ask a question: ")
 
 print()

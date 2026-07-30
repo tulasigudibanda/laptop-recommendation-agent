@@ -5,24 +5,33 @@ from tools import (
     search_by_budget_mock,
     search_by_brand,
     search_by_ram,
-    search_laptops_by_budget,
 )
 
 agent = create_react_agent(
     model=llm,
-    # tools=[search_laptops_by_budget],
-    tools=[search_by_budget_mock,
-    search_by_brand,
-    search_by_ram],
+    tools=[
+        search_by_budget_mock,
+        search_by_brand,
+        search_by_ram,
+    ],
 )
 
 
-def ask_agent(question: str):
+def ask_agent(messages, brand=None):
+
+    graph_messages = []
+
+    for message in messages:
+        graph_messages.append(
+            (
+                message["role"],
+                message["content"]
+            )
+        )
+
     response = agent.invoke(
         {
-            "messages": [
-                ("user", question)
-            ]
+            "messages": graph_messages
         }
     )
 

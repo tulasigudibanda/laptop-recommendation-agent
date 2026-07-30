@@ -37,5 +37,6 @@ An AI-powered laptop recommendation agent built with Python, LangChain, LangGrap
 
 ```bash
 pip3 install -r requirements.txt
-python3 main.py
+python3 main.py - not updated to pass session_state.messages like in app.py
+streamlit run app.py
 ```
