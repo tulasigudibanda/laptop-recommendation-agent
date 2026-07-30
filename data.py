@@ -1,0 +1,122 @@
+laptops = [
+    {
+        "brand": "Lenovo",
+        "model": "LOQ 15",
+        "price": 78000,
+        "ram": 16,
+        "storage": 512,
+        "cpu": "Ryzen 7 7840HS",
+        "gpu": "RTX 4050",
+        "purpose": ["gaming", "programming"]
+    },
+    {
+        "brand": "Lenovo",
+        "model": "IdeaPad Slim 5",
+        "price": 62000,
+        "ram": 16,
+        "storage": 512,
+        "cpu": "Ryzen 5 7530U",
+        "gpu": "Integrated",
+        "purpose": ["student", "office", "programming"]
+    },
+    {
+        "brand": "Dell",
+        "model": "Inspiron 15",
+        "price": 65000,
+        "ram": 16,
+        "storage": 512,
+        "cpu": "Intel Core i5-13420H",
+        "gpu": "Integrated",
+        "purpose": ["office", "student"]
+    },
+    {
+        "brand": "Dell",
+        "model": "G15",
+        "price": 92000,
+        "ram": 16,
+        "storage": 1024,
+        "cpu": "Intel Core i7-13650HX",
+        "gpu": "RTX 4060",
+        "purpose": ["gaming", "programming"]
+    },
+    {
+        "brand": "HP",
+        "model": "Victus 15",
+        "price": 85000,
+        "ram": 16,
+        "storage": 512,
+        "cpu": "Ryzen 7 7840HS",
+        "gpu": "RTX 4050",
+        "purpose": ["gaming", "programming"]
+    },
+    {
+        "brand": "HP",
+        "model": "Pavilion 14",
+        "price": 59000,
+        "ram": 8,
+        "storage": 512,
+        "cpu": "Intel Core i5-1335U",
+        "gpu": "Integrated",
+        "purpose": ["student", "office"]
+    },
+    {
+        "brand": "ASUS",
+        "model": "TUF A15",
+        "price": 89000,
+        "ram": 16,
+        "storage": 1024,
+        "cpu": "Ryzen 7 7735HS",
+        "gpu": "RTX 4060",
+        "purpose": ["gaming", "programming"]
+    },
+    {
+        "brand": "ASUS",
+        "model": "Vivobook 15",
+        "price": 56000,
+        "ram": 8,
+        "storage": 512,
+        "cpu": "Intel Core i5-1235U",
+        "gpu": "Integrated",
+        "purpose": ["student", "office"]
+    },
+    {
+        "brand": "Acer",
+        "model": "Nitro V",
+        "price": 81000,
+        "ram": 16,
+        "storage": 512,
+        "cpu": "Intel Core i7-13620H",
+        "gpu": "RTX 4050",
+        "purpose": ["gaming", "programming"]
+    },
+    {
+        "brand": "Acer",
+        "model": "Aspire 5",
+        "price": 52000,
+        "ram": 8,
+        "storage": 512,
+        "cpu": "Ryzen 5 7530U",
+        "gpu": "Integrated",
+        "purpose": ["student", "office"]
+    },
+    {
+        "brand": "Apple",
+        "model": "MacBook Air M3",
+        "price": 114000,
+        "ram": 16,
+        "storage": 512,
+        "cpu": "Apple M3",
+        "gpu": "Integrated",
+        "purpose": ["programming", "office", "content creation"]
+    },
+    {
+        "brand": "MSI",
+        "model": "Katana 15",
+        "price": 98000,
+        "ram": 16,
+        "storage": 1024,
+        "cpu": "Intel Core i7-13620H",
+        "gpu": "RTX 4060",
+        "purpose": ["gaming", "programming"]
+    }
+]
