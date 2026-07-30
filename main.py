@@ -1,10 +1,11 @@
 from agent import agent
-from db import init_db
-from tools import load_data_if_needed
+from agent import ask_agent
+# from db import init_db
+# from tools import load_data_if_needed
 
-init_db()
+# init_db()
 
-load_data_if_needed()
+# load_data_if_needed()
 
 
 # response = agent.invoke(
@@ -14,35 +15,29 @@ load_data_if_needed()
 #         ]
 #     }
 # )
-messages = []
+# print(response["messages"][-1].content)
 
-while True:
-    user_input = input("You: ")
+# #if you want conversational history and llm to remember the previous messages
+# messages = []
+# while True:
+#     user_input = input("You: ")
 
-    messages.append(("user", user_input))
+#     messages.append(("user", user_input))
 
-    response = agent.invoke({"messages": messages})
+#     response = agent.invoke({"messages": messages})
 
-    ai_message = response["messages"][-1]
+#     ai_message = response["messages"][-1]
 
-    print(ai_message.content)
+#     print(ai_message.content)
 
-    messages.append(ai_message)
+#     messages.append(ai_message)
 
-print(response["messages"][-1].content)
+# print(response["messages"][-1].content)
 
 
-# For verbose messages
-# for message in response["messages"]:
-#     print("=" * 50)
-#     print(type(message).__name__)
-#     print(message)
+# To reuse across main.py and 
+question = input("Ask a question: ")
 
-# for step in agent.stream(
-#     {
-#         "messages": [
-#             ("user", "Recommend a Lenovo laptop under 80000")
-#         ]
-#     }
-# ):
-#     print(step)
+print()
+
+print(ask_agent(question))

@@ -5,7 +5,7 @@ from ebay import sync_ebay_laptops
 
 
 @tool
-def search_by_budget(max_price: int):
+def search_by_budget_mock(max_price: int):
     """Returns laptops under a given budget."""
 
     results = []
