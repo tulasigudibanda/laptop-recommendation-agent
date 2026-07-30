@@ -7,7 +7,7 @@ laptops = [
         "storage": 512,
         "cpu": "Ryzen 7 7840HS",
         "gpu": "RTX 4050",
-        "purpose": ["gaming", "programming"]
+        "purpose": ["gaming", "programming"],
     },
     {
         "brand": "Lenovo",
@@ -17,7 +17,7 @@ laptops = [
         "storage": 512,
         "cpu": "Ryzen 5 7530U",
         "gpu": "Integrated",
-        "purpose": ["student", "office", "programming"]
+        "purpose": ["student", "office", "programming"],
     },
     {
         "brand": "Dell",
@@ -27,7 +27,7 @@ laptops = [
         "storage": 512,
         "cpu": "Intel Core i5-13420H",
         "gpu": "Integrated",
-        "purpose": ["office", "student"]
+        "purpose": ["office", "student"],
     },
     {
         "brand": "Dell",
@@ -37,7 +37,7 @@ laptops = [
         "storage": 1024,
         "cpu": "Intel Core i7-13650HX",
         "gpu": "RTX 4060",
-        "purpose": ["gaming", "programming"]
+        "purpose": ["gaming", "programming"],
     },
     {
         "brand": "HP",
@@ -47,7 +47,7 @@ laptops = [
         "storage": 512,
         "cpu": "Ryzen 7 7840HS",
         "gpu": "RTX 4050",
-        "purpose": ["gaming", "programming"]
+        "purpose": ["gaming", "programming"],
     },
     {
         "brand": "HP",
@@ -57,7 +57,7 @@ laptops = [
         "storage": 512,
         "cpu": "Intel Core i5-1335U",
         "gpu": "Integrated",
-        "purpose": ["student", "office"]
+        "purpose": ["student", "office"],
     },
     {
         "brand": "ASUS",
@@ -67,7 +67,7 @@ laptops = [
         "storage": 1024,
         "cpu": "Ryzen 7 7735HS",
         "gpu": "RTX 4060",
-        "purpose": ["gaming", "programming"]
+        "purpose": ["gaming", "programming"],
     },
     {
         "brand": "ASUS",
@@ -77,7 +77,7 @@ laptops = [
         "storage": 512,
         "cpu": "Intel Core i5-1235U",
         "gpu": "Integrated",
-        "purpose": ["student", "office"]
+        "purpose": ["student", "office"],
     },
     {
         "brand": "Acer",
@@ -87,7 +87,7 @@ laptops = [
         "storage": 512,
         "cpu": "Intel Core i7-13620H",
         "gpu": "RTX 4050",
-        "purpose": ["gaming", "programming"]
+        "purpose": ["gaming", "programming"],
     },
     {
         "brand": "Acer",
@@ -97,7 +97,7 @@ laptops = [
         "storage": 512,
         "cpu": "Ryzen 5 7530U",
         "gpu": "Integrated",
-        "purpose": ["student", "office"]
+        "purpose": ["student", "office"],
     },
     {
         "brand": "Apple",
@@ -107,7 +107,7 @@ laptops = [
         "storage": 512,
         "cpu": "Apple M3",
         "gpu": "Integrated",
-        "purpose": ["programming", "office", "content creation"]
+        "purpose": ["programming", "office", "content creation"],
     },
     {
         "brand": "MSI",
@@ -117,6 +117,6 @@ laptops = [
         "storage": 1024,
         "cpu": "Intel Core i7-13620H",
         "gpu": "RTX 4060",
-        "purpose": ["gaming", "programming"]
-    }
+        "purpose": ["gaming", "programming"],
+    },
 ]

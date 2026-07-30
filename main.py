@@ -21,9 +21,7 @@ while True:
 
     messages.append(("user", user_input))
 
-    response = agent.invoke({
-        "messages": messages
-    })
+    response = agent.invoke({"messages": messages})
 
     ai_message = response["messages"][-1]
 

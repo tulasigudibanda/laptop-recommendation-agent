@@ -3,7 +3,4 @@ from langchain_openai import ChatOpenAI
 
 load_dotenv()
 
-llm = ChatOpenAI(
-    model="gpt-4.1",
-    temperature=0
-)
+llm = ChatOpenAI(model="gpt-4.1", temperature=0)

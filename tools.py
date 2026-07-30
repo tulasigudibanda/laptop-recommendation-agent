@@ -1,10 +1,6 @@
 from data import laptops
 from langchain.tools import tool
-from db import (
-    is_db_empty,
-    insert_laptops,
-    search_by_budget
-)
+from db import is_db_empty, insert_laptops, search_by_budget
 from ebay import sync_ebay_laptops
 
 
@@ -20,17 +16,14 @@ def search_by_budget(max_price: int):
 
     return results
 
+
 @tool
 def search_by_brand(brand: str) -> list:
     """
     Returns all laptops for the specified brand.
     Example brands: Lenovo, Dell, HP, ASUS.
     """
-    return [
-        laptop
-        for laptop in laptops
-        if laptop["brand"].lower() == brand.lower()
-    ]
+    return [laptop for laptop in laptops if laptop["brand"].lower() == brand.lower()]
 
 
 @tool
@@ -39,14 +32,8 @@ def search_by_ram(ram: int) -> list:
     Returns all laptops with at least the specified RAM (in GB).
     Example: 8, 16, 32.
     """
-    return [
-        laptop
-        for laptop in laptops
-        if laptop["ram"] >= ram
-    ]
+    return [laptop for laptop in laptops if laptop["ram"] >= ram]
 
-
- 
 
 ####################################
 

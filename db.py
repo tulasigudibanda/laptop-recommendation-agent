@@ -13,7 +13,8 @@ def init_db():
 
     cursor = conn.cursor()
 
-    cursor.execute("""
+    cursor.execute(
+        """
     CREATE TABLE IF NOT EXISTS laptops(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         ebay_item_id TEXT UNIQUE,
@@ -21,7 +22,8 @@ def init_db():
         model TEXT,
         price REAL
     )
-    """)
+    """
+    )
 
     conn.commit()
     conn.close()
@@ -50,7 +52,8 @@ def insert_laptops(laptops):
 
     for laptop in laptops:
 
-        cursor.execute("""
+        cursor.execute(
+            """
         INSERT OR IGNORE INTO laptops(
             ebay_item_id,
             brand,
@@ -59,12 +62,8 @@ def insert_laptops(laptops):
         )
         VALUES(?,?,?,?)
         """,
-        (
-            laptop["item_id"],
-            laptop["brand"],
-            laptop["model"],
-            laptop["price"]
-        ))
+            (laptop["item_id"], laptop["brand"], laptop["model"], laptop["price"]),
+        )
 
     conn.commit()
     conn.close()
@@ -76,12 +75,15 @@ def search_by_budget(max_price):
 
     cursor = conn.cursor()
 
-    cursor.execute("""
+    cursor.execute(
+        """
         SELECT brand,model,price
         FROM laptops
         WHERE price<=?
         ORDER BY price
-    """,(max_price,))
+    """,
+        (max_price,),
+    )
 
     rows = cursor.fetchall()
 

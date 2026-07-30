@@ -8,40 +8,23 @@ def sync_ebay_laptops(query="laptop"):
 
     url = "https://api.ebay.com/buy/browse/v1/item_summary/search"
 
-    headers = {
-        "Authorization": f"Bearer {EBAY_ACCESS_TOKEN}"
-    }
+    headers = {"Authorization": f"Bearer {EBAY_ACCESS_TOKEN}"}
 
-    params = {
-        "q": query,
-        "limit": 20
-    }
+    params = {"q": query, "limit": 20}
 
-    response = requests.get(
-        url,
-        headers=headers,
-        params=params
-    )
+    response = requests.get(url, headers=headers, params=params)
 
     response.raise_for_status()
 
     items = response.json().get("itemSummaries", [])
 
-    brands = [
-        "Lenovo",
-        "Dell",
-        "HP",
-        "ASUS",
-        "Acer",
-        "Apple",
-        "MSI"
-    ]
+    brands = ["Lenovo", "Dell", "HP", "ASUS", "Acer", "Apple", "MSI"]
 
     laptops = []
 
     for item in items:
 
-        title = item.get("title","")
+        title = item.get("title", "")
 
         brand = "Unknown"
 
@@ -50,18 +33,13 @@ def sync_ebay_laptops(query="laptop"):
                 brand = b
                 break
 
-        laptops.append({
-
-            "item_id": item.get("itemId"),
-
-            "brand": brand,
-
-            "model": title,
-
-            "price": float(
-                item.get("price",{}).get("value",0)
-            )
-
-        })
+        laptops.append(
+            {
+                "item_id": item.get("itemId"),
+                "brand": brand,
+                "model": title,
+                "price": float(item.get("price", {}).get("value", 0)),
+            }
+        )
 
     return laptops
