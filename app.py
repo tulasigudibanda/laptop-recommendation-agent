@@ -9,14 +9,14 @@ st.set_page_config(
 # -----------------------------
 # Session State
 # -----------------------------
-if "brand" not in st.session_state:
-    st.session_state.brand = None
+# if "brand" not in st.session_state:
+#     st.session_state.brand = None
 
-if "budget" not in st.session_state:
-    st.session_state.budget = None
+# if "budget" not in st.session_state:
+#     st.session_state.budget = None
 
-if "ram" not in st.session_state:
-    st.session_state.ram = None
+# if "ram" not in st.session_state:
+#     st.session_state.ram = None
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -47,18 +47,18 @@ if question:
         st.write(question)
 
     # Store preferences
-    if "lenovo" in question.lower():
-        st.session_state.brand = "Lenovo"
+    # if "lenovo" in question.lower():
+    #     st.session_state.brand = "Lenovo"
 
-    elif "dell" in question.lower():
-        st.session_state.brand = "Dell"
+    # elif "dell" in question.lower():
+    #     st.session_state.brand = "Dell"
 
     # Call agent
     with st.spinner("Thinking..."):
 
         answer = ask_agent(
             st.session_state.messages,
-            brand=st.session_state.brand
+            # brand=st.session_state.brand
         )
 
     # Save assistant response
