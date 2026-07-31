@@ -1,5 +1,4 @@
-from agent import agent
-from agent import ask_agent
+from agent import agent, ask_agent
 
 # from db import init_db
 # from tools import load_data_if_needed

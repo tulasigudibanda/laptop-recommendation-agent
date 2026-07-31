@@ -42,4 +42,14 @@ streamlit run app.py
 
 # Brings up fastAPI server
 uvicorn api:app --reload
+
+# Check everything before pushing
+black --check .
+ruff check .
+python -m compileall .
+
+#To fix 
+black .
+ruff check . --fix
 ```
+

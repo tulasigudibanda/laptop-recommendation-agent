@@ -1,6 +1,7 @@
-import streamlit as st
-from agent import ask_agent
 import requests
+import streamlit as st
+
+from agent import ask_agent
 
 st.set_page_config(page_title="Laptop Recommendation Agent", page_icon="💻")
 

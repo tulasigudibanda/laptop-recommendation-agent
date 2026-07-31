@@ -1,6 +1,7 @@
-from data import laptops
 from langchain.tools import tool
-from db import is_db_empty, insert_laptops, search_by_budget
+
+from data import laptops
+from db import insert_laptops, is_db_empty, search_by_budget
 from ebay import sync_ebay_laptops
 
 

@@ -1,4 +1,5 @@
 import os
+
 import requests
 
 EBAY_ACCESS_TOKEN = os.getenv("EBAY_ACCESS_TOKEN")

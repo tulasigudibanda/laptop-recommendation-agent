@@ -1,0 +1,8 @@
+line-length = 88
+
+[lint]
+ignore = [
+    "F401",   # unused imports
+    "E402",   # imports not at top
+    "E501",   # line too long
+]
