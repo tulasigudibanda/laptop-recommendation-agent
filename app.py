@@ -2,10 +2,7 @@ import streamlit as st
 from agent import ask_agent
 import requests
 
-st.set_page_config(
-    page_title="Laptop Recommendation Agent",
-    page_icon="💻"
-)
+st.set_page_config(page_title="Laptop Recommendation Agent", page_icon="💻")
 
 # -----------------------------
 # Session State
@@ -37,12 +34,7 @@ question = st.chat_input("Ask me about laptops")
 if question:
 
     # Show user message
-    st.session_state.messages.append(
-        {
-            "role": "user",
-            "content": question
-        }
-    )
+    st.session_state.messages.append({"role": "user", "content": question})
 
     with st.chat_message("user"):
         st.write(question)
@@ -55,21 +47,13 @@ if question:
         # )
 
         response = requests.post(
-            "http://127.0.0.1:8000/chat",
-            json={
-                "messages": st.session_state.messages
-            }
+            "http://127.0.0.1:8000/chat", json={"messages": st.session_state.messages}
         )
 
         answer = response.json()["answer"]
 
     # Save assistant response
-    st.session_state.messages.append(
-        {
-            "role": "assistant",
-            "content": answer
-        }
-    )
+    st.session_state.messages.append({"role": "assistant", "content": answer})
 
     # Display assistant response
     with st.chat_message("assistant"):

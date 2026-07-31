@@ -15,6 +15,4 @@ def chat(request: ChatRequest):
 
     answer = ask_agent(request.messages)
 
-    return {
-        "answer": answer
-    }
+    return {"answer": answer}
