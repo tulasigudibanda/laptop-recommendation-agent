@@ -29,15 +29,24 @@ jobs:
             pip install -r requirements.txt
           fi
 
-          pip install pytest black ruff
+          pip install pytest black==25.11.0 ruff
 
       - name: Check Python syntax
         run: |
           python -m compileall .
 
+      - name: Show Black version
+        run: |
+          python --version
+          python -m black --version
+          
+      - name: Show db.py
+        run: |
+          cat db.py
+
       - name: Check formatting
         run: |
-          black --check .
+          python -m black --check .
 
       - name: Lint
         run: |
