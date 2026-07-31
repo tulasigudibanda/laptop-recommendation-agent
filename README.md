@@ -39,4 +39,7 @@ An AI-powered laptop recommendation agent built with Python, LangChain, LangGrap
 pip3 install -r requirements.txt
 python3 main.py - not updated to pass session_state.messages like in app.py
 streamlit run app.py
+
+# Brings up fastAPI server
+uvicorn api:app --reload
 ```

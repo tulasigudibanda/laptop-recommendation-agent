@@ -1,5 +1,6 @@
 import streamlit as st
 from agent import ask_agent
+import requests
 
 st.set_page_config(
     page_title="Laptop Recommendation Agent",
@@ -46,20 +47,21 @@ if question:
     with st.chat_message("user"):
         st.write(question)
 
-    # Store preferences
-    # if "lenovo" in question.lower():
-    #     st.session_state.brand = "Lenovo"
-
-    # elif "dell" in question.lower():
-    #     st.session_state.brand = "Dell"
-
     # Call agent
     with st.spinner("Thinking..."):
+        # answer = ask_agent(
+        #     st.session_state.messages,
+        #     # brand=st.session_state.brand
+        # )
 
-        answer = ask_agent(
-            st.session_state.messages,
-            # brand=st.session_state.brand
+        response = requests.post(
+            "http://127.0.0.1:8000/chat",
+            json={
+                "messages": st.session_state.messages
+            }
         )
+
+        answer = response.json()["answer"]
 
     # Save assistant response
     st.session_state.messages.append(
