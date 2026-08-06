@@ -132,4 +132,3 @@ OpenAI
 Response back to UI
 
 ```
-
