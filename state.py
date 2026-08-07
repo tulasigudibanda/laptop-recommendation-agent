@@ -2,6 +2,6 @@ from typing import Optional, TypedDict
 
 
 class AgentState(TypedDict):
-    brand: Optional[str]
-    budget: Optional[int]
-    ram: Optional[int]
+    brand: str | None
+    budget: int | None
+    ram: int | None

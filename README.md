@@ -39,7 +39,7 @@ An AI-powered laptop recommendation agent built with Python, LangChain, LangGrap
 ## Run
 
 ```bash
-pip3 install -r requirements.txt
+python3 -m pip install -r requirements.txt
 # main.py is not updated to pass session_state.messages like in app.py
 python3 main.py 
 
