@@ -50,8 +50,7 @@ if question:
 
         API_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
         response = requests.post(
-            f"{API_URL}/chat", 
-            json={"messages": st.session_state.messages}
+            f"{API_URL}/chat", json={"messages": st.session_state.messages}
         )
 
         answer = response.json()["answer"]
