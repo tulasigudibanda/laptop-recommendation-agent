@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: laptop-recommendation-agent
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: laptop-recommendation-agent
+
+  template:
+    metadata:
+      labels:
+        app: laptop-recommendation-agent
+
+    spec:
+      containers:
+        - name: laptop-recommendation-agent
+
+          image: laptop-recommendation-agent:latest
+
+          imagePullPolicy: Never
+
+          ports:
+            - containerPort: 8501
+
+          env:
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: laptop-agent-secrets
+                  key: OPENAI_API_KEY
