@@ -1,0 +1,13 @@
+replicaCount: 1
+
+image:
+  repository: laptop-recommendation-agent
+  tag: latest
+  pullPolicy: Never
+
+service:
+  type: NodePort
+  port: 8501
+  targetPort: 8501
+
+containerPort: 8501

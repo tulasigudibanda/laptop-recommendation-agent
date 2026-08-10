@@ -1,0 +1,8 @@
+apiVersion: v2
+name: laptop-recommendation-agent
+description: Helm chart for the Laptop Recommendation Agent
+
+type: application
+
+version: 0.1.0
+appVersion: "1.0.0"
