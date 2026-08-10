@@ -33,3 +33,6 @@ spec:
                 secretKeyRef:
                   name: laptop-agent-secrets
                   key: OPENAI_API_KEY
+
+            - name: API_URL
+              value: "https://laptop-recommendation-agent.onrender.com"

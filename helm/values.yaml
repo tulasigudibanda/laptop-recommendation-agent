@@ -11,3 +11,5 @@ service:
   targetPort: 8501
 
 containerPort: 8501
+
+apiUrl: "https://laptop-recommendation-agent.onrender.com"
