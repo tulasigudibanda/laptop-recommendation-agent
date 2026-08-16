@@ -77,7 +77,7 @@ An OpenAI API key
 
 Create a .env file in the project root:
 
-OPENAI_API_KEY=your_api_key
+OPENAI_API_KEY=<your_api_key>
 
 Install dependencies and start the API in one terminal:
 
@@ -99,23 +99,27 @@ API_URL=https://laptop-recommendation-agent.onrender.com
 
 ## Quality Checks
 
+```
 black --check .
 ruff check .
 python -m compileall .
+```
 
 ## Container and Kubernetes Notes
 
 The Dockerfile packages the Streamlit UI. When running it locally, set API_URL to a FastAPI service reachable from the container.
-
+```
 docker build -t laptop-recommendation-agent .
 docker run --rm -p 8501:8501 \
   -e API_URL=http://host.docker.internal:8000 \
   laptop-recommendation-agent
+```
 
 Kubernetes manifests are available in k8s/, and a Helm chart is available in helm/. The Helm deployment expects an existing laptop-agent-secrets secret containing OPENAI_API_KEY.
-
+```
 helm lint ./helm
 helm install laptop-agent ./helm
+```
 
 Current Scope
 
