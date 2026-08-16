@@ -13,7 +13,8 @@ def init_db():
 
     cursor = conn.cursor()
 
-    cursor.execute("""
+    cursor.execute(
+        """
     CREATE TABLE IF NOT EXISTS laptops(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         ebay_item_id TEXT UNIQUE,
@@ -21,7 +22,8 @@ def init_db():
         model TEXT,
         price REAL
     )
-    """)
+    """
+    )
 
     conn.commit()
     conn.close()
