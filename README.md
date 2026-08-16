@@ -6,6 +6,10 @@ The project separates the user interface from the agent API: Streamlit provides 
 
 Live Demo: [laptop-recommendation-agent.streamlit.app](https://laptop-recommendation-agent.streamlit.app/)
 
+## UI Preview
+
+![Laptop Recommendation Agent UI](assets/laptop-agent-demo.png)
+
 ## Highlights
 
 Conversational laptop recommendations based on user preferences.
@@ -30,29 +34,29 @@ SQLite
 
 Docker, Kubernetes, Helm, GitHub Actions
 
-Architecture
+## Architecture
 
-Browser
-  -> Streamlit UI (app.py)
-  -> FastAPI /chat endpoint (api.py)
-  -> LangGraph agent (agent.py)
-  -> Search tools and SQLite catalog
-  -> OpenAI model response
+• Browser User Input
+  • Streamlit UI (app.py)
+    • FastAPI /chat endpoint (api.py)
+      • LangGraph ReAct Agent (agent.py)
+        • Search tools (tools.py) & SQLite catalog (db.py)
+          • OpenAI API
+            • Response back to UI
 
 ## Project Structure
 
-.
-├── app.py              # Streamlit chat UI
-├── api.py              # FastAPI /chat endpoint
-├── agent.py            # LangGraph agent and preference handling
-├── tools.py            # Laptop search tools
-├── db.py               # SQLite access
-├── laptops.db          # Local laptop catalog
-├── llm.py              # OpenAI model configuration
-├── requirements.txt
-├── Dockerfile
-├── k8s/                # Kubernetes manifests
-└── helm/               # Helm chart
+• **app.py** — Streamlit chat UI
+• **api.py** — FastAPI /chat endpoint
+• **agent.py** — LangGraph agent and preference handling
+• **tools.py** — Laptop search tools
+• **db.py** — SQLite access
+• **laptops.db** — Local laptop catalog
+• **llm.py** — OpenAI model configuration
+• **requirements.txt** — Python dependencies
+• **Dockerfile** — Container configuration
+• **k8s/** — Kubernetes manifests (deployment, service)
+• **helm/** — Helm chart for orchestration
 
 ## Run Locally
 
