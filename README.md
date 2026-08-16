@@ -1,136 +1,108 @@
 # Laptop Recommendation Agent
 
-An AI-powered laptop recommendation agent built with Python, LangChain, LangGraph, SQLite, and the eBay Browse API.
+An AI-powered laptop recommendation app that uses a conversational agent and a local laptop catalog to help users find options by brand, budget, and RAM.
 
-## Features
+The project separates the user interface from the agent API: Streamlit provides the chat experience, while FastAPI exposes the /chat endpoint that invokes a LangGraph ReAct agent.
 
-- AI agent using LangGraph
-- Tool calling
-- SQLite caching
-- eBay Browse API integration
-- Budget, brand, and RAM-based recommendations
+Live Demo: [laptop-recommendation-agent.streamlit.app](https://laptop-recommendation-agent.streamlit.app/)
+
+## Highlights
+
+Conversational laptop recommendations based on user preferences.
+
+LangGraph ReAct agent with tools for brand, budget, and RAM searches.
+
+SQLite-backed local laptop catalog.
+
+Streamlit chat UI with conversation history.
+
+FastAPI backend for a clean UI-to-agent boundary.
+
+Docker, Kubernetes, Helm, and GitHub Actions configuration for hands-on deployment and CI experimentation.
 
 ## Tech Stack
 
-- Python
-- LangChain
-- LangGraph
-- Google Gemini / OpenAI
-- SQLite
-- eBay Browse API
+Python, FastAPI, Streamlit
+
+LangChain, LangGraph, OpenAI
+
+SQLite
+
+Docker, Kubernetes, Helm, GitHub Actions
+
+Architecture
+
+Browser
+  -> Streamlit UI (app.py)
+  -> FastAPI /chat endpoint (api.py)
+  -> LangGraph agent (agent.py)
+  -> Search tools and SQLite catalog
+  -> OpenAI model response
 
 ## Project Structure
 
-```
 .
-├── api.py              <-- FastAPI app
-├── app.py              <-- Streamlit UI
-├── agent.py
-├── tools.py
-├── llm.py
-├── db.py
-├── ebay.py
-├── data.py
-└── laptops.db
+├── app.py              # Streamlit chat UI
+├── api.py              # FastAPI /chat endpoint
+├── agent.py            # LangGraph agent and preference handling
+├── tools.py            # Laptop search tools
+├── db.py               # SQLite access
+├── laptops.db          # Local laptop catalog
+├── llm.py              # OpenAI model configuration
 ├── requirements.txt
-└── README.md
-```
+├── Dockerfile
+├── k8s/                # Kubernetes manifests
+└── helm/               # Helm chart
 
-## Run
+## Run Locally
 
-```bash
-python3 -m pip install -r requirements.txt
-# main.py is not updated to pass session_state.messages like in app.py
-python3 main.py 
+### Prerequisites
 
-# Main commands to run frontend and backend
-# Brings up fastAPI server in port 8000 by default
+Python 3.12+
+
+An OpenAI API key
+
+Create a .env file in the project root:
+
+OPENAI_API_KEY=your_api_key
+
+Install dependencies and start the API in one terminal:
+
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
 uvicorn api:app --reload
-# Brings up UI
+
+In a second terminal, start the Streamlit UI:
+
+source .venv/bin/activate
 streamlit run app.py
 
+The Streamlit UI uses `http://127.0.0.1:8000` when the API is running locally. For the deployed backend, set:
 
+```env
+API_URL=https://laptop-recommendation-agent.onrender.com
 
-# Check everything before pushing
+### Quality Checks
+
 black --check .
 ruff check .
 python -m compileall .
 
-#To fix 
-black .
-ruff check . --fix
-```
+## Container and Kubernetes Notes
 
-## Deploy backend (api.py) in Render
+The Dockerfile packages the Streamlit UI. When running it locally, set API_URL to a FastAPI service reachable from the container.
 
-```
-Start Command when Render Web Service is created :
-uvicorn api:app --host 0.0.0.0 --port $PORT
-#This tells Uvicorn:
+docker build -t laptop-recommendation-agent .
+docker run --rm -p 8501:8501 \
+  -e API_URL=http://host.docker.internal:8000 \
+  laptop-recommendation-agent
 
-Load the file api.py
-Find the FastAPI object named app
-Start serving it
+Kubernetes manifests are available in k8s/, and a Helm chart is available in helm/. The Helm deployment expects an existing laptop-agent-secrets secret containing OPENAI_API_KEY.
 
-So only api.py becomes the web server entry point, even though all files are present in the repository.
+helm lint ./helm
+helm install laptop-agent ./helm
 
-```
+Current Scope
 
-## Deploy frontend (apop.py) in Streamlit
-
-```
-
-Step 1: Push latest code to GitHub (appy.py and requirements.txt are main files which calls other files during runtime)
-
-Step 2: Create Streamlit Cloud account . Go to: Sign in with GitHub (Authorize Streamlit to access your repositories)
-https://share.streamlit.io/
-
-Step 3: Create a new Streamlit app
-
-```
-Click 'Create app'
-Deploy a public app from GitHub
-Choose 
-    Repository:
-    tulasigudibanda/laptop-recommendation-agent
-    Branch:
-    main
-    Main file path:
-    app.py
-Deploy
-
-Step 4: Add secrets/environment variables
-In Streamlit Cloud:
-    App Settings -> Secrets
-Add: 
-OPENAI_API_KEY="your-key"
-API_URL="https://laptop-recommendation-agent.onrender.com"   
-
-Step 5: Deploy and test
-Streamlit will build your app. You will get a URL like: 
-https://laptop-recommendation-agent.streamlit.app
-
-
-## Architecture
-
-```
-
-You effectively had two separate applications:
-
-User input/Browser
-    ↓
-Streamlit UI/Streamlit Community Cloud (Frontend)
-    ↓
-requests.post(API_URL)
-    ↓
-FastAPI /chat endpoint
-    ↓
-LangGraph Agent
-    ↓
-OpenAI
-    ↓
-Response back to UI
-
-```
-UI : 
-https://laptop-recommendation-agent.streamlit.app/
+This is a personal learning project. Recommendations are based on the local SQLite catalog and agent tools; it is not a production e-commerce service.

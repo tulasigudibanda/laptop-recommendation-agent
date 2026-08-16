@@ -1,8 +1,9 @@
+# Sample catalog prices are in USD.
 laptops = [
     {
         "brand": "Lenovo",
         "model": "LOQ 15",
-        "price": 78000,
+        "price": 919,
         "ram": 16,
         "storage": 512,
         "cpu": "Ryzen 7 7840HS",
@@ -12,7 +13,7 @@ laptops = [
     {
         "brand": "Lenovo",
         "model": "IdeaPad Slim 5",
-        "price": 62000,
+        "price": 729,
         "ram": 16,
         "storage": 512,
         "cpu": "Ryzen 5 7530U",
@@ -22,7 +23,7 @@ laptops = [
     {
         "brand": "Dell",
         "model": "Inspiron 15",
-        "price": 65000,
+        "price": 765,
         "ram": 16,
         "storage": 512,
         "cpu": "Intel Core i5-13420H",
@@ -32,7 +33,7 @@ laptops = [
     {
         "brand": "Dell",
         "model": "G15",
-        "price": 92000,
+        "price": 1082,
         "ram": 16,
         "storage": 1024,
         "cpu": "Intel Core i7-13650HX",
@@ -42,7 +43,7 @@ laptops = [
     {
         "brand": "HP",
         "model": "Victus 15",
-        "price": 85000,
+        "price": 999,
         "ram": 16,
         "storage": 512,
         "cpu": "Ryzen 7 7840HS",
@@ -52,7 +53,7 @@ laptops = [
     {
         "brand": "HP",
         "model": "Pavilion 14",
-        "price": 59000,
+        "price": 694,
         "ram": 8,
         "storage": 512,
         "cpu": "Intel Core i5-1335U",
@@ -62,7 +63,7 @@ laptops = [
     {
         "brand": "ASUS",
         "model": "TUF A15",
-        "price": 89000,
+        "price": 1047,
         "ram": 16,
         "storage": 1024,
         "cpu": "Ryzen 7 7735HS",
@@ -72,7 +73,7 @@ laptops = [
     {
         "brand": "ASUS",
         "model": "Vivobook 15",
-        "price": 56000,
+        "price": 659,
         "ram": 8,
         "storage": 512,
         "cpu": "Intel Core i5-1235U",
@@ -82,7 +83,7 @@ laptops = [
     {
         "brand": "Acer",
         "model": "Nitro V",
-        "price": 81000,
+        "price": 953,
         "ram": 16,
         "storage": 512,
         "cpu": "Intel Core i7-13620H",
@@ -92,7 +93,7 @@ laptops = [
     {
         "brand": "Acer",
         "model": "Aspire 5",
-        "price": 52000,
+        "price": 612,
         "ram": 8,
         "storage": 512,
         "cpu": "Ryzen 5 7530U",
@@ -102,7 +103,7 @@ laptops = [
     {
         "brand": "Apple",
         "model": "MacBook Air M3",
-        "price": 114000,
+        "price": 1341,
         "ram": 16,
         "storage": 512,
         "cpu": "Apple M3",
@@ -112,7 +113,7 @@ laptops = [
     {
         "brand": "MSI",
         "model": "Katana 15",
-        "price": 98000,
+        "price": 1153,
         "ram": 16,
         "storage": 1024,
         "cpu": "Intel Core i7-13620H",
