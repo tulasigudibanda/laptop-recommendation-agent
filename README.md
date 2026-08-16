@@ -44,6 +44,7 @@ flowchart LR
     D --> E[Search Tools<br/>tools.py]
     E --> F[SQLite Catalog<br/>data.py]
     D --> G[OpenAI API]
+    G --> B
 ```
 
 ## Project Structure
