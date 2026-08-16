@@ -36,27 +36,33 @@ Docker, Kubernetes, Helm, GitHub Actions
 
 ## Architecture
 
-• Browser User Input
-  • Streamlit UI (app.py)
-    • FastAPI /chat endpoint (api.py)
-      • LangGraph ReAct Agent (agent.py)
-        • Search tools (tools.py) & SQLite catalog (db.py)
-          • OpenAI API
-            • Response back to UI
+```mermaid
+flowchart LR
+    A[Browser] --> B[Streamlit UI<br/>app.py]
+    B --> C[FastAPI API<br/>api.py /chat]
+    C --> D[LangGraph ReAct Agent<br/>agent.py]
+    D --> E[Search Tools<br/>tools.py]
+    E --> F[SQLite Catalog<br/>data.py]
+    D --> G[OpenAI API]
+```
 
 ## Project Structure
 
-• **app.py** — Streamlit chat UI
-• **api.py** — FastAPI /chat endpoint
-• **agent.py** — LangGraph agent and preference handling
-• **tools.py** — Laptop search tools
-• **db.py** — SQLite access
-• **laptops.db** — Local laptop catalog
-• **llm.py** — OpenAI model configuration
-• **requirements.txt** — Python dependencies
-• **Dockerfile** — Container configuration
-• **k8s/** — Kubernetes manifests (deployment, service)
-• **helm/** — Helm chart for orchestration
+```text
+.
+├── app.py              # Streamlit chat UI
+├── api.py              # FastAPI /chat endpoint
+├── agent.py            # LangGraph agent and preference handling
+├── tools.py            # Laptop search tools
+├── data.py             # Sample laptop catalog
+├── db.py               # SQLite access
+├── laptops.db          # Local SQLite database
+├── llm.py              # OpenAI model configuration
+├── requirements.txt
+├── Dockerfile
+├── k8s/                # Kubernetes manifests
+└── helm/               # Helm chart
+```
 
 ## Run Locally
 
