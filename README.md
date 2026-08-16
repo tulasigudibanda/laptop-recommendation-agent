@@ -44,7 +44,9 @@ flowchart LR
     D --> E[Search Tools<br/>tools.py]
     E --> F[SQLite Catalog<br/>data.py]
     D --> G[OpenAI API]
-    G --> B
+    G --> D
+    D --> C
+    C --> B
 ```
 
 ## Project Structure
@@ -93,8 +95,9 @@ The Streamlit UI uses `http://127.0.0.1:8000` when the API is running locally. F
 
 ```env
 API_URL=https://laptop-recommendation-agent.onrender.com
+```
 
-### Quality Checks
+## Quality Checks
 
 black --check .
 ruff check .
